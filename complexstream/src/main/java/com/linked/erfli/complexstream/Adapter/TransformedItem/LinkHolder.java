@@ -21,6 +21,7 @@ public class LinkHolder extends BaseHolder {
 
     @Override
     public void render(BaseItem baseItem) {
+        super.render(baseItem);
         if(baseItem instanceof HeaderTextWithLinkItem){
             linkItemBinding.linkText.setText(((HeaderTextWithLinkItem) baseItem).getLink());
         }

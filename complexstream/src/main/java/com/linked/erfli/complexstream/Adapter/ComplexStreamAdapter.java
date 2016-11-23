@@ -4,6 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.linked.complexstream.R;
 import com.linked.erfli.complexstream.Adapter.TransformedItem.BaseHolder;
 import com.linked.erfli.complexstream.Util.ItemType;
 import com.linked.erfli.complexstream.Util.ItemWrap;
@@ -54,10 +55,14 @@ public class ComplexStreamAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ItemWrap itemWrap = (ItemWrap) getItem(position);
         if(convertView == null){
-            convertView = ItemWrapHelper.createItemView(itemWrap.getItemType());
+            convertView = ItemWrapHelper.getItemView(itemWrap.getItemType());
+        }else {
+            ((ItemWrap)(convertView.getTag(R.string.tag_key))).unBindView();
         }
+        convertView.setTag(R.string.tag_key, itemWrap);
         BaseHolder baseHolder = (BaseHolder) convertView.getTag();
         baseHolder.render(itemWrap.getBaseItem());
+        itemWrap.bindView(convertView);
         return convertView;
     }
 }

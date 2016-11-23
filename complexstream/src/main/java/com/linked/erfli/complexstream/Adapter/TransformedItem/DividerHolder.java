@@ -20,5 +20,6 @@ public class DividerHolder extends BaseHolder {
 
     @Override
     public void render(BaseItem baseItem) {
+        super.render(baseItem);
     }
 }

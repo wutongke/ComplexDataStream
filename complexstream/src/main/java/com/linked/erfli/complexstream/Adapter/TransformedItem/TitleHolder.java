@@ -23,6 +23,7 @@ public class TitleHolder extends BaseHolder {
 
     @Override
     public void render(BaseItem baseItem) {
+        super.render(baseItem);
         if (baseItem instanceof HeaderTextWithTitleItem) {
             titleItemBinding.titleText.setText(((HeaderTextWithTitleItem) baseItem).getTitle());
         }else if(baseItem instanceof CardWithTitleItem){

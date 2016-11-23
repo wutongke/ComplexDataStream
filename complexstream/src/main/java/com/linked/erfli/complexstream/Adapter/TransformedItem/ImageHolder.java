@@ -34,6 +34,7 @@ public class ImageHolder extends BaseHolder {
 
     @Override
     public void render(BaseItem baseItem) {
+        super.render(baseItem);
         ArrayAdapter arrayAdapter = (ArrayAdapter) imageItemBinding.imageGrid.getAdapter();
         if (arrayAdapter == null) {
             arrayAdapter = new ImageAdapter(itemView.getContext(), 0);
@@ -67,7 +68,7 @@ public class ImageHolder extends BaseHolder {
             } else {
                 imageView = (ImageView) convertView;
             }
-            imageView.setLayoutParams(new GridView.LayoutParams(300, 300));
+            imageView.setLayoutParams(new GridView.LayoutParams(200, 200));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             Glide.clear(imageView);
             Glide.with(imageView.getContext())

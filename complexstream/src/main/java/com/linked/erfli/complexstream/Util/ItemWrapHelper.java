@@ -96,10 +96,23 @@ public class ItemWrapHelper {
             for (ItemType itemType : map.get(baseItem.getClass())) {
                 ItemWrap temp = new ItemWrap(baseItem, itemType);
                 itemWraps.add(temp);
+                baseItem.itemWraps.add(temp);
             }
-            itemWraps.add(new ItemWrap(baseItem, ItemType.DIVIDER));
+            ItemWrap divider = new ItemWrap(baseItem, ItemType.DIVIDER);
+            itemWraps.add(divider);
+            baseItem.itemWraps.add(divider);
         }
         return itemWraps;
+    }
+
+    public static View getItemView(ItemType itemType){
+        BackgroundLinearLayout layout = (BackgroundLinearLayout) LayoutInflater.from(_Application.applicationContext).inflate(R.layout.item_layout, null);
+        View contentView = createItemView(itemType);
+        layout.addView(contentView);
+        BaseHolder baseHolder = (BaseHolder) contentView.getTag();
+        layout.setTag(baseHolder);
+        layout.setOnPressListener(baseHolder);
+        return layout;
     }
 
     public static View createItemView(ItemType itemType) {

@@ -25,6 +25,7 @@ public class TextHolder extends BaseHolder {
 
     @Override
     public void render(BaseItem baseItem) {
+        super.render(baseItem);
         String text = "";
         if(baseItem instanceof HeaderTextCardItem){
             text = ((HeaderTextCardItem) baseItem).getText();

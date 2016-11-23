@@ -8,7 +8,7 @@
         android:paddingRight="5dp"
         android:paddingTop="5dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/avatar"
             android:layout_width="50dp"
             android:layout_height="50dp"

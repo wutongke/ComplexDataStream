@@ -28,6 +28,7 @@ public class CardHolder extends BaseHolder {
 
     @Override
     public void render(BaseItem baseItem) {
+        super.render(baseItem);
         Card card = null;
         if(baseItem instanceof CardWithTitleItem){
             card = ((CardWithTitleItem) baseItem).getCard();

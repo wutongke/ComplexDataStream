@@ -32,6 +32,7 @@ public class HeaderHolder extends BaseHolder {
 
     @Override
     public void render(BaseItem baseItem) {
+        super.render(baseItem);
         Header header = null;
         if (baseItem instanceof HeaderCardItem) {
             header = ((HeaderCardItem) baseItem).getHeader();
